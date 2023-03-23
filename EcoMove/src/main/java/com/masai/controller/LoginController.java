@@ -5,12 +5,13 @@ import com.masai.DTO.UserLoginDTO;
 import com.masai.entities.CurrentAdminSession;
 import com.masai.entities.CurrentUserSession;
 import com.masai.services.LoginService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/portal")

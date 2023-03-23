@@ -2,7 +2,8 @@ package com.masai.entities;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.*;
 
 import lombok.*;
 

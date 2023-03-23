@@ -2,8 +2,8 @@ package com.masai.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public class FeedbackController {
 	
 	@PostMapping("/feedback/user/{busid}")
 	public ResponseEntity<Feedback> addFeedback(@Valid @RequestBody Feedback feedback, @PathVariable("busid") Integer busId,
-			@RequestParam(required = false) String key) throws UserException,BusException{
+												@RequestParam(required = false) String key) throws UserException,BusException{
 		
 		Feedback givenFeedback = feedbackservice.addFeedback(feedback,busId,key);
 		

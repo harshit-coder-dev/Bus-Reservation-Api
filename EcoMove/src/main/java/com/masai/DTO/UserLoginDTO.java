@@ -1,9 +1,10 @@
 package com.masai.DTO;
 
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+
+import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Setter

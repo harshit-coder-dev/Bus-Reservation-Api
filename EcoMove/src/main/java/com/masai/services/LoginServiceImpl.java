@@ -11,7 +11,7 @@ import com.masai.respository.AdminRepo;
 import com.masai.respository.AdminSessionDao;
 import com.masai.respository.UserDao;
 import com.masai.respository.UserSessionDao;
-import net.bytebuddy.utility.RandomString;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
 
         if (existingAdmin.getAdminPassword().equals(dto.getAdminPassword())) {
 
-            String key = RandomString.make(6);
+            String key = RandomStringUtils.randomAlphabetic(6);
 
             CurrentAdminSession currentAdminSession = new CurrentAdminSession(existingAdmin.getAdminId(), key, LocalDateTime.now());
 
@@ -93,7 +93,7 @@ public class LoginServiceImpl implements LoginService {
 
         if (existingUser.getPassword().equals(dto.getPassword())) {
 
-            String key = RandomString.make(6);
+            String key = RandomStringUtils.randomAlphabetic(6);
 
             CurrentUserSession currentUserSession = new CurrentUserSession(existingUser.getUserId(), key, LocalDateTime.now());
 
