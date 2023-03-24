@@ -58,7 +58,7 @@
 
 ## API Root Endpoint
 ```
-`http://localhost:8818/`
+https://bus-reservation-api-production.up.railway.app/swagger-ui/index.html
 ```
 
 ```
