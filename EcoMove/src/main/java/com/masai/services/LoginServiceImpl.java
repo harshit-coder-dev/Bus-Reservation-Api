@@ -11,12 +11,13 @@ import com.masai.respository.AdminRepo;
 import com.masai.respository.AdminSessionDao;
 import com.masai.respository.UserDao;
 import com.masai.respository.UserSessionDao;
-import org.apache.commons.lang3.RandomStringUtils;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -51,7 +52,9 @@ public class LoginServiceImpl implements LoginService {
 
         if (existingAdmin.getAdminPassword().equals(dto.getAdminPassword())) {
 
-            String key = RandomStringUtils.randomAlphabetic(6);
+            UUID uuid = UUID.randomUUID();
+
+            String key = uuid.toString().replaceAll("-", "").substring(0,6);
 
             CurrentAdminSession currentAdminSession = new CurrentAdminSession(existingAdmin.getAdminId(), key, LocalDateTime.now());
 
@@ -92,8 +95,9 @@ public class LoginServiceImpl implements LoginService {
         }
 
         if (existingUser.getPassword().equals(dto.getPassword())) {
+            UUID uuid = UUID.randomUUID();
 
-            String key = RandomStringUtils.randomAlphabetic(6);
+            String key = uuid.toString().replaceAll("-", "").substring(0,6);
 
             CurrentUserSession currentUserSession = new CurrentUserSession(existingUser.getUserId(), key, LocalDateTime.now());
 

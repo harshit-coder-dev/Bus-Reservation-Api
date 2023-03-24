@@ -6,14 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@OpenAPIDefinition(
-        servers = {
-                @Server(url = "/", description = "Default server URL")
-        }
-)
-
 
 @SpringBootApplication
+@OpenAPIDefinition(
+        servers = {
+                @Server(url = "/", description = "Default Server URL")
+        }
+)
 public class EcoMoveApplication {
 
     public static void main(String[] args) {
